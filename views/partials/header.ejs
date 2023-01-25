@@ -1,0 +1,12 @@
+<nav>
+    <img src="/images/camera.svg">
+    <a href="/scores" <%- title === 'All Scores' ? 'class="active"' : '' %>>ALL SCORES</a>
+    <% if (user) { %>
+      <a href="/comments/new"	<%- title === 'Add Performer' ? 'class="active"' : '' %>>
+          ADD COMMENT</a>
+      <a href="/logout">LOG OUT</a>
+    <% } else { %>
+      <a href="/auth/google" class="login">LOG IN&nbsp;<img src="https://i.imgur.com/FHjYyi0.png"></a>
+    <% } %>
+  </nav>
+  
