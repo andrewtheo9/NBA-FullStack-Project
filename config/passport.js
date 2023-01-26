@@ -1,21 +1,22 @@
-const passport = require('passport');
-const GoogleStrategy = require('passport-google-oauth').OAuth2Strategy;
-const User = require('../models/user');
+const passport = require("passport");
+const GoogleStrategy = require("passport-google-oauth").OAuth2Strategy;
+const User = require("../models/user");
 
-passport.use(new GoogleStrategy(
+passport.use(
+  new GoogleStrategy(
     // Configuration object
     {
       clientID: process.env.GOOGLE_CLIENT_ID,
       clientSecret: process.env.GOOGLE_SECRET,
-      callbackURL: process.env.GOOGLE_CALLBACK
+      callbackURL: process.env.GOOGLE_CALLBACK,
     },
     // The verify callback function
     // Let's use async/await!
-    async function(accessToken, refreshToken, profile, cb) {
-        // When using async/await to consume promises,
-        // there is no use of .then or .catch, so we
-        // use a try/catch block to handle an error
-        try {
+    async function (accessToken, refreshToken, profile, cb) {
+      // When using async/await to consume promises,
+      // there is no use of .then or .catch, so we
+      // use a try/catch block to handle an error
+      try {
         // A user has logged in with OAuth...
         // Instead of using promise.then with a callback,
         // we can use the await keyword followed by the promise.
@@ -27,22 +28,23 @@ passport.use(new GoogleStrategy(
         // We have a new user via OAuth!
         // if ther's no user, then create one
         user = await User.create({
-            name: profile.displayName,
-            googleId: profile.id,
-            email: profile.emails[0].value,
-            avatar: profile.photos[0].value
+          name: profile.displayName,
+          googleId: profile.id,
+          email: profile.emails[0].value,
+          avatar: profile.photos[0].value,
         });
         return cb(null, user);
-        } catch(err) {
-            return cb(err);
-        }
+      } catch (err) {
+        return cb(err);
+      }
     }
-  ));
+  )
+);
 
-  passport.serializeUser(function(user, cb) {
-    cb(null, user._id);
-  });
+passport.serializeUser(function (user, cb) {
+  cb(null, user._id);
+});
 
-  passport.deserializeUser(async function(userId, cb) {
-    cb(null, await User.findById(userId));
-  });
+passport.deserializeUser(async function (userId, cb) {
+  cb(null, await User.findById(userId));
+});
