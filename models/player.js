@@ -17,12 +17,15 @@ const playerSchema = new Schema({
     },
     points: {
         type: Number,
+        required: true
     },
     assists: { 
        type: Number,
+       required: true
     }, 
     rebounds: {
-        type: Number
+        type: Number,
+        required: true
     }
 }, {
     timestamps: true

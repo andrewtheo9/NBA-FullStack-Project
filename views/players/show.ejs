@@ -1,9 +1,19 @@
 <%- include('../partials/header') %>
 
-<section id="players-page">
-    <div>Top MVP Candidates</div>
-    <div></div>
+<section id="show-page">
+    <div>Player:</div>
+    <div><%= player.name %></div>
+    <div>Position:</div>
+    <div><%= player.position %></div>
+    <div>Team:</div>
+    <div><%= player.team %></div>
+    <div>Points Per Game</div>
+    <div><%= player.points %></div>
+    <div>Assists Per Game</div>
+    <div><%= player.assists %></div>
+    <div>Rebounds Per Game</div>
+    <div><%= player.rebounds %></div>
 </section>
-
+</form>
 
 <%- include('../partials/footer') %>

@@ -23,7 +23,7 @@ function index(req, res) {
 }
 
 function newPlayer(req, res) {
-    res.render('players/new')
+    res.render('players/new');
 }
 
 function create(req, res) {

@@ -1,0 +1,29 @@
+<%- include('../partials/header') %>
+
+<h2>MVP Candidates</h2>
+<table>
+  <thead>
+    <tr>
+      <th>Name</th>
+      <th>Position</th>
+      <th>Team</th>
+      <th>PPG</th>
+      <th>APG</th>
+      <th>RPG</th>
+    </tr>
+  </thead>
+  <tbody>
+    <% players.forEach((p) => {%>
+      <tr>
+        <td><%= p.name %></td>
+        <td><%= p.position %></td>
+        <td><%= p.team %></td>
+        <td><%= p.points %></td>
+        <td><%= p.assists %></td>
+        <td><%= p.rebounds %></td>
+      </tr>
+    <% }) %>
+  </tbody>
+</table>
+
+<%- include('../partials/footer') %>
