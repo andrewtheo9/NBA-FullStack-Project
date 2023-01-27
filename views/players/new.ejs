@@ -1,7 +1,8 @@
 <%- include('../partials/header') %>
 
-<h2>Add a New Player</h2>
+<h2>A New Player Joins the MVP Conversation!</h2>
 <form action="/players" method="POST">
+    <div id="addPlayer">
   <label>Name:
     <input type="text" name="name">
   </label><br>
@@ -27,6 +28,7 @@
     <input type="number" name="rebounds">
   </label><br>
   <button type="submit">Add Player</button>
+  </div>
 </form>
 
 <%- include('../partials/footer') %>

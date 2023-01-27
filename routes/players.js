@@ -5,6 +5,7 @@ const playersCtrl = require('../controllers/players');
 
 router.get('/', playersCtrl.index)
 router.get('/new', playersCtrl.new)
+router.get('/:id', playersCtrl.show)
 router.post('/', playersCtrl.create)
 
 module.exports = router;

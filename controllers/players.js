@@ -11,7 +11,7 @@ function show(req, res) {
     Player.findById(req.params.id)
       .exec(function (err, player) {
           console.log(player);
-          res.render("players/show", { title: "Player Detail", player });
+          res.render("players/show", { title: "Player Stats", player });
         });
   }
 

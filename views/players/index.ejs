@@ -1,15 +1,13 @@
 <%- include('../partials/header') %>
 
 <h2>MVP Candidates</h2>
-<table>
+<table id="candidates">
   <thead>
     <tr>
       <th>Name</th>
       <th>Position</th>
       <th>Team</th>
-      <th>PPG</th>
-      <th>APG</th>
-      <th>RPG</th>
+      <th></th>
     </tr>
   </thead>
   <tbody>
@@ -18,9 +16,7 @@
         <td><%= p.name %></td>
         <td><%= p.position %></td>
         <td><%= p.team %></td>
-        <td><%= p.points %></td>
-        <td><%= p.assists %></td>
-        <td><%= p.rebounds %></td>
+        <td><a href="/players/<%= p._id %>">STATS</a></td>
       </tr>
     <% }) %>
   </tbody>

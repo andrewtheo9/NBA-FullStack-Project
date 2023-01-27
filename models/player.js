@@ -1,6 +1,15 @@
 const mongoose = require('mongoose');
 const Schema = mongoose.Schema;
 
+const commentSchema = new Schema({
+    content: {
+        type: String,
+        required: true
+    }
+ }, {
+        timestamps: true
+})
+
 const playerSchema = new Schema({
     name: {
         type: String, 
@@ -26,7 +35,8 @@ const playerSchema = new Schema({
     rebounds: {
         type: Number,
         required: true
-    }
+    },
+    comments: [commentSchema]
 }, {
     timestamps: true
 });
