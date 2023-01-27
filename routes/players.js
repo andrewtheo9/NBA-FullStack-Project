@@ -4,8 +4,8 @@ const isLoggedIn = require('../config/isLoggedIn');
 const playersCtrl = require('../controllers/players');
 
 router.get('/', playersCtrl.index)
-router.get('/new', playersCtrl.new)
+router.get('/new', isLoggedIn, playersCtrl.new)
 router.get('/:id', playersCtrl.show)
-router.post('/', playersCtrl.create)
+router.post('/', isLoggedIn, playersCtrl.create)
 
 module.exports = router;

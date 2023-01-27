@@ -4,7 +4,7 @@ module.exports = {
     index,
     new: newPlayer,
     create,
-    show
+    show,
 }
 
 function show(req, res) {
@@ -18,12 +18,12 @@ function show(req, res) {
 function index(req, res) {
     Player.find({}, function(err, players) {
         console.log(players)
-        res.render('players/index', { players })
+        res.render('players/index', { title: "All Players", players })
     })
 }
 
 function newPlayer(req, res) {
-    res.render('players/new');
+    res.render('players/new', { title: "Add Player" });
 }
 
 function create(req, res) {
@@ -31,6 +31,6 @@ function create(req, res) {
     player.save(function(err) {
         if (err) return res.redirect('/players/new');
         console.log(player);
-        res.redirect('/players');
+        res.redirect(`/players/${player._id}`);
     })
 }

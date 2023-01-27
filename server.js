@@ -5,6 +5,7 @@ var cookieParser = require('cookie-parser');
 var logger = require('morgan');
 const session = require('express-session');
 const passport = require('passport');
+const methodOverride = require('method-override');
 
 // Load the "secrets" in the .env file
 require('dotenv').config();
@@ -27,6 +28,7 @@ app.use(logger('dev'));
 app.use(express.json());
 app.use(express.urlencoded({ extended: false }));
 app.use(cookieParser());
+app.use(methodOverride('_method'));
 app.use(session({
   secret: process.env.SECRET,
   resave: false,
