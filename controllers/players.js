@@ -5,6 +5,7 @@ module.exports = {
     new: newPlayer,
     create,
     show,
+    update: updatePlayer
 }
 
 function show(req, res) {
@@ -33,4 +34,8 @@ function create(req, res) {
         console.log(player);
         res.redirect(`/players/${player._id}`);
     })
+}
+
+function updatePlayer(req, res) {
+    Player.updateOne(req.params.id)
 }

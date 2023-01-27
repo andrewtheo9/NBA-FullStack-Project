@@ -7,5 +7,6 @@ router.get('/', playersCtrl.index)
 router.get('/new', isLoggedIn, playersCtrl.new)
 router.get('/:id', playersCtrl.show)
 router.post('/', isLoggedIn, playersCtrl.create)
+router.put('/players/:id', isLoggedIn, playersCtrl.update)
 
 module.exports = router;

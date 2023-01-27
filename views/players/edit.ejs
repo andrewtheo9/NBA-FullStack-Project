@@ -1,5 +1,12 @@
 <form action="/players/<%= p._id %>">
-<input type="number" name="points">
-<input type="number" name="assists">
-<input type="number" name="rebounds">
+    <% if (user?._id.equals(p.user)) { %>
+    <label>Points:
+        <input type="number" name="points">
+      </label><br>
+      <label>Assists:
+        <input type="number" name="assists">
+      </label><br>
+      <label>Rebounds:
+        <input type="number" name="rebounds">
+      </label><br>
 </form>
